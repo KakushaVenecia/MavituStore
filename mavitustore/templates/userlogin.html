@@ -1,0 +1,58 @@
+{% extends 'base.html'%}
+{% block content %}
+<!-- Section: Design Block -->
+<section class=" text-center text-lg-start mt-5">
+    <style>
+        .rounded-t-5 {
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+        }
+
+        @media (min-width: 992px) {
+            .rounded-tr-lg-0 {
+                border-top-right-radius: 0;
+            }
+
+            .rounded-bl-lg-5 {
+                border-bottom-left-radius: 0.5rem;
+            }
+        }
+    </style>
+    <div class="card mb-3">
+        <div class="row g-0 d-flex align-items-center">
+            <div class="col-lg-4 d-none d-lg-flex">
+                <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" alt="Trendy Pants and Shoes"
+                    class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+            </div>
+            <div class="col-lg-8">
+                <div class="card-body py-5 px-md-5">
+
+                    <form action="/login/" method="POST">
+                          {%csrf_token %}
+                        <div class="form-outline mb-4">
+                            <input type="text" name="username" id="form2Example17"
+                                class="form-control form-control-lg" />
+                            <label class="form-label" for="form2Example17">Username</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="password" name="password" id="form2Example27"
+                                class="form-control form-control-lg" />
+                            <label class="form-label" for="form2Example27">Password</label>
+                        </div>
+
+                        <div class="pt-1 mb-4">
+                            <button type="submit" class="btn btn-dark btn-lg btn-block" type="button">Login</button>
+                        </div>
+
+                        <a class="small text-muted" href="#!">Forgot password?</a>
+                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="/register/"
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section: Design Block -->
+{%endblock%}

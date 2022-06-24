@@ -1,0 +1,111 @@
+{% load static %}
+<DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if title %}
+        <title>{%block title%}{%endblock%}{{title}}</title>
+        {% else %}
+        <title>Mavitu</title>
+        {% endif %}
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+        <!-- MDB -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <script>
+            let user = "{{request.user}}"
+
+
+            function getCookie(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        // Does this cookie string begin with the name we want?
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+            const csrftoken = getCookie('csrftoken');
+        </script>
+    </head>
+
+    <body>
+        {% include 'navbar.html'%}
+        
+            <div class="container-fluid">
+                {%block content%}
+                {%endblock%}
+            </div>
+
+        <footer class="text-center" style="background-color:rgb(28, 120, 116);">
+            <!-- Grid container -->
+            <div class="container p-4 pb-0">
+                <!-- Section: Form -->
+                <section class="">
+                    <form action="">
+                        <!--Grid row-->
+                        <div class="row d-flex justify-content-center">
+                            <!--Grid column-->
+                            <div class="col-auto">
+                                <p class="pt-2 ">
+                                    <strong style="color: white;">Sign up for our newsletter</strong>
+                                </p>
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Grid column-->
+                            <div class="col-md-5 col-12">
+                                <!-- Email input -->
+                                <div class="form-outline mb-4">
+                                    <input type="email" id="form5Example27" class="form-control" />
+                                    <label class="form-label" for="form5Example27" style="color: white;">Email
+                                        address</label>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Grid column-->
+                            <div class="col-auto">
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-primary mb-4">
+                                    Subscribe
+                                </button>
+                            </div>
+                            <!--Grid column-->
+                        </div>
+                        <!--Grid row-->
+                    </form>
+                </section>
+                <!-- Section: Form -->
+            </div>
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(166, 161, 161, 0.851);">
+                © 2022 Copyright:
+                <a class="" style="color: white;" href="">Kakusha Venecia</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js">
+        </script>
+        <script src="{% static 'index.js' %}"></script>
+        {% csrf_token %}
+        <script>
+            csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        </script>
+    </body>
+
+    </html>

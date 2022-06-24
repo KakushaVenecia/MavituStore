@@ -1,0 +1,82 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-green">
+    <div class="container-fluid justify-content-between">
+        <!-- Left elements -->
+        <div class="d-flex">
+            <!-- Brand -->
+            <a class="navbar-brand mt-2 mt-lg-0" href="{% url 'index'%}">
+                <strong style="color:red; font-size: larger;">MAVITU STORES</strong>
+                <img src="static/mavitu.png" width="100px" height="105" alt="Mavitu Logo" loading="lazy" />
+            </a>
+
+
+        </div>
+        <!-- Left elements -->
+
+        <!-- Center elements -->
+        <ul class="navbar-nav flex-row d-none d-md-flex">
+            <li class="nav-item me-3 me-lg-1">
+                <a class="nav-link" href="{%url 'index'%}">
+                    Shop
+                </a>
+            </li>
+
+            <li class="nav-item me-3 me-lg-1">
+                <a class="nav-link" href="{%url 'cart'%}">   
+                <div class="cart-item-count" id="cart">Cart
+                    <h6>{{cart.cartquantity}}</h6>
+                </div></span></a>
+            </li>
+
+            <li class="nav-item me-3 me-lg-1">
+                <a class="nav-link" href="{%url 'checkout'%}">
+                    Checkout
+                </a>
+            </li>
+
+            <!-- <li class="nav-item me-3 me-lg-1">
+                <a class="nav-link" href="#">
+                    <span><i class="fas fa-users fa-lg"></i></span>
+                    <span class="badge rounded-pill badge-notification bg-danger">2</span>
+                </a>
+            </li> -->
+        </ul>
+        <!-- Center elements -->
+
+        <!-- Right elements -->
+        <ul class="navbar-nav flex-row">
+
+            <!-- Search form -->
+            <form class="input-group w-auto my-auto d-none d-sm-flex" action="{%url 'searchbar' %}" method="get">
+                <input autocomplete="off" type="text" name="query" class="form-control rounded" placeholder="Search"
+                    style="min-width: 125px;" />
+                <span class="input-group-text border-0 d-none d-lg-flex"></span>
+            </form>
+            <li class="nav-item me-3 me-lg-1">
+                <a class="nav-link" href="{% url 'login'%}">
+                Login
+                </a>
+            </li>&nbsp;
+            <li class="nav-item me-3 me-lg-1">
+                <a class="nav-link" href="{% url 'register'%}">
+                Register
+                </a>
+            </li>&nbsp;
+            <li class="nav-item dropdown me-3 me-lg-1">
+                <a class=" nav-link dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
+                    data-mdb-toggle="dropdown" aria-expanded="false">
+                    My Profile
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                    <li>
+                        <a class="dropdown-item" href="#">My profile</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{% url 'signout'%}">Log Out</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- Right elements -->
+    </div>
+</nav>

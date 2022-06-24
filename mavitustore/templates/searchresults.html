@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{%block content%}
+
+<div class='container mt-5'>
+    <h3>Search Results</h3>
+    <div class='row'>
+        {%if products%}
+        {% for product in products %}
+        <div class='col-md-4 col-lg-4'>
+            <div class="card" style="width: 22rem;">
+                <img src=" {{product.image.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.name}}</h5>
+                    <h6 class="card-title"> From- {{product.brand}}</h6>
+                    <h6 class="card-title">{{product.description}}</h6>
+                    <h5 class="card-text">KES {{product.price}}</h5>
+                    <a class="btn btn-primary addtocart" data-action='add' data-product="{{product.product_id}}">Add to
+                        Cart</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+ {%else%}
+  <p>No Product Available</p>
+  {%endif%}
+
+{%endblock%}

@@ -1,0 +1,58 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-6'>
+            <div class="uk-width-xlarge uk-margin">
+                <div class="uk-card uk-card-small uk-card-default uk-card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <h3>Order Summary</h3>
+                                <h4><strong>Total: KES{{cart.grandtotal|floatformat:2}}</strong>
+                                </h4>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for item in cartitems %}
+                            <tr>
+
+                                <td scope="row">
+                                    <div id="cart_image  "><img width="70px" src='{{item.product.image.url}}'></div>
+                                </td>
+                                <td>
+                                    <h6>{{item.product.name}}</h6>
+                                </td>
+                                <td>
+                                    <h6>x{{item.quantity}}</h6>
+                                </td>
+                                <td>
+                                    <h6>${{item.product.price}}</h6>
+                                </td>
+                                <td>
+                                    <h3></h3>
+                                </td>
+                                <td>
+                                    <h6>${{item.subtotal}}</h6>
+                                </td>
+                            </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class='col-md-6'>
+            <div class="uk-width-xlarge uk-margin">
+                <div class="uk-card uk-card-small uk-card-default uk-card-body">
+                    <h2>You are almost done shopping!!</h2>
+                    <a href="#">
+                        <button type="button" class="btn btn-primary btn-lg">Order →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%endblock%}
